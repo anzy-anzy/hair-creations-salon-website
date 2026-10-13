@@ -19,6 +19,7 @@
     </a>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Visit &amp; Book</a>
@@ -28,26 +29,30 @@
         <span>Call to Book</span>
         (831) 637-2866
       </div>
-      <a href="tel:+18316372866" class="btn btn--gold">Book Now</a>
+      <a href="contact.html#book-form" class="btn btn--gold">Book Now</a>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-media" style="background-image:url('images/hero-lounge.jpg');"></div>
-  <div class="container hero-content">
-    <h1>Hair that tells <em>your</em> story,<br>crafted in Hollister.</h1>
-    <p class="lead">A boutique salon &amp; spa on San Felipe Road where color, cuts, bridal styling and skin care are treated as an art form — led by owner-stylist Araceli and her team.</p>
-    <div class="btn-row">
-      <a href="tel:+18316372866" class="btn btn--gold">Call (831) 637-2866</a>
-      <a href="services.html" class="btn btn--outline-light">View Services</a>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>Hair that tells <em>your</em> story,<br>crafted in Hollister.</h1>
+      <p class="lead">A boutique salon &amp; spa on San Felipe Road where color, cuts, bridal styling and skin care are treated as an art form — led by owner-stylist Araceli and her team.</p>
+      <div class="btn-row">
+        <a href="contact.html#book-form" class="btn btn--gold">Book Online</a>
+        <a href="tel:+18316372866" class="btn btn--outline-light">Call (831) 637-2866</a>
+      </div>
+      <ul class="hero-badges">
+        <li>Appointment recommended</li>
+        <li>Wheelchair accessible</li>
+        <li>Credit &amp; debit accepted</li>
+      </ul>
     </div>
-    <ul class="hero-badges">
-      <li>Appointment recommended</li>
-      <li>Wheelchair accessible</li>
-      <li>Credit &amp; debit accepted</li>
-    </ul>
+    <div class="hero-media">
+      <img src="images/hero-lounge.jpg" alt="Inside the Hair Creations Salon and Spa lounge, Hollister">
+    </div>
   </div>
   <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
 </section>
@@ -91,26 +96,32 @@
       <h2>The Hair Creations experience</h2>
       <p>From everyday color maintenance to once-in-a-lifetime bridal days — here's where to start.</p>
     </div>
-    <div class="experience-grid reveal-stagger">
-      <div class="exp-tile reveal">
-        <img src="images/gallery-2.jpg" alt="Dimensional hair color at Hair Creations Salon">
-        <div class="exp-label">
-          <span class="exp-eyebrow">01 · Color</span>
+    <div class="service-rows">
+      <div class="service-row reveal">
+        <div class="row-media"><img src="images/service-color.jpg" alt="Araceli at the entrance of Hair Creations Salon and Spa, Hollister"></div>
+        <div class="row-copy">
+          <span class="row-eyebrow">01 · Color</span>
           <h3>Color &amp; Highlights</h3>
+          <p>Balayage, dimensional highlights, full color and gray blending — Araceli's specialty, tailored to your hair in a real consultation first.</p>
+          <a href="services.html" class="row-link">Learn more <span class="arrow">→</span></a>
         </div>
       </div>
-      <div class="exp-tile reveal">
-        <img src="images/gallery-4.jpg" alt="Quinceañera hair and makeup styling at Hair Creations Salon">
-        <div class="exp-label">
-          <span class="exp-eyebrow">02 · Events</span>
+      <div class="service-row flip reveal">
+        <div class="row-media"><img src="images/gallery-4.jpg" alt="Quinceañera hair and makeup styling at Hair Creations Salon"></div>
+        <div class="row-copy">
+          <span class="row-eyebrow">02 · Events</span>
           <h3>Bridal &amp; Special Occasion</h3>
+          <p>Bridal hair and makeup artistry, up-dos and styling for weddings and quinceañeras, from trial run to the big day.</p>
+          <a href="services.html" class="row-link">Learn more <span class="arrow">→</span></a>
         </div>
       </div>
-      <div class="exp-tile reveal">
-        <img src="images/gallery-3.jpg" alt="Spa treatment room at Hair Creations Salon">
-        <div class="exp-label">
-          <span class="exp-eyebrow">03 · Spa</span>
+      <div class="service-row reveal">
+        <div class="row-media"><img src="images/gallery-3.jpg" alt="Spa treatment room at Hair Creations Salon"></div>
+        <div class="row-copy">
+          <span class="row-eyebrow">03 · Spa</span>
           <h3>Facials &amp; Waxing</h3>
+          <p>Spa facials and waxing in a private treatment room — the salon's quieter, slower side.</p>
+          <a href="services.html" class="row-link">Learn more <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -119,6 +130,12 @@
     </div>
   </div>
 </section>
+
+<div class="promo-banner">
+  <div class="container">
+    <a href="contact.html">First time at Hair Creations? Call for a free color consultation <span class="arrow">→</span></a>
+  </div>
+</div>
 
 <section class="section">
   <div class="container">
@@ -203,17 +220,27 @@
   </div>
 </section>
 
-<section class="cta-band">
+<section class="cta-split">
   <div class="container">
-    <span class="eyebrow">Ready When You Are</span>
-    <h2>Let's create your next look</h2>
-    <p>Appointments are recommended — give us a call and we'll find a time that works for you.</p>
-    <div class="btn-row">
-      <a href="tel:+18316372866" class="btn btn--gold">Call (831) 637-2866</a>
-      <a href="contact.html" class="btn btn--outline-light">Get Directions</a>
+    <div class="cta-split-copy">
+      <span class="eyebrow">Ready When You Are</span>
+      <h2>Let's create your next look</h2>
+      <p>Appointments are recommended — give us a call and we'll find a time that works for you.</p>
+      <div class="btn-row">
+        <a href="contact.html#book-form" class="btn btn--gold">Book Online</a>
+        <a href="tel:+18316372866" class="btn btn--outline-light">Call (831) 637-2866</a>
+      </div>
+    </div>
+    <div class="cta-split-media">
+      <img src="images/gallery-11.jpg" alt="Styling work at Hair Creations Salon and Spa, Hollister">
     </div>
   </div>
 </section>
+
+<div class="social-row">
+  <a href="https://www.instagram.com/explore/search/keyword/?q=hair%20creations%20salon%20hollister" target="_blank" rel="noopener" aria-label="Find Hair Creations on Instagram">IG</a>
+  <a href="https://www.facebook.com/search/top?q=hair%20creations%20salon%20and%20spa%20hollister" target="_blank" rel="noopener" aria-label="Hair Creations on Facebook">FB</a>
+</div>
 
 <footer class="site-footer">
   <div class="container">
@@ -226,6 +253,7 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Visit &amp; Book</a></li>
@@ -256,5 +284,6 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script src="js/chatbot.js"></script>
 </body>
 </html>

@@ -71,6 +71,88 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ---------- Gallery label tiles (jump to a filtered view) ----------
+     The plain-text cells interspersed in the gallery grid act as
+     shortcuts into a filter tab rather than a separate page, since
+     this is a single-location gallery, not a multi-location site. */
+  document.querySelectorAll('[data-filter-link]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var cat = el.getAttribute('data-filter-link');
+      var matchingTab = document.querySelector('.gallery-tabs button[data-filter="' + cat + '"]');
+      if(matchingTab){ matchingTab.click(); }
+      var tabsEl = document.querySelector('.gallery-tabs');
+      if(tabsEl){ tabsEl.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    });
+  });
+
+  /* ---------- Booking request form ----------
+     No backend on this static site, so there is no live calendar to
+     reserve a slot in. Instead this composes the client's picks into a
+     text message addressed to the salon's real number, with a phone
+     fallback always shown — an honest substitute, not a fake
+     "confirmed" booking. */
+  var bookForm = document.getElementById('booking-form');
+  if(bookForm){
+    var dateInput = document.getElementById('book-date');
+    if(dateInput){
+      var today = new Date();
+      var yyyy = today.getFullYear();
+      var mm = String(today.getMonth() + 1).padStart(2, '0');
+      var dd = String(today.getDate()).padStart(2, '0');
+      dateInput.setAttribute('min', yyyy + '-' + mm + '-' + dd);
+    }
+    bookForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!bookForm.reportValidity()) return;
+
+      var service = document.getElementById('book-service').value;
+      var dateVal = document.getElementById('book-date').value;
+      var timeVal = document.getElementById('book-time').value;
+      var name = document.getElementById('book-name').value.trim();
+      var phone = document.getElementById('book-phone').value.trim();
+      var notes = document.getElementById('book-notes').value.trim();
+
+      var dateStr = dateVal;
+      if(dateVal){
+        var d = new Date(dateVal + 'T00:00:00');
+        dateStr = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      }
+      var timeStr = timeVal;
+      if(timeVal){
+        var parts = timeVal.split(':');
+        var h = parseInt(parts[0], 10);
+        var m = parts[1];
+        var ampm = h >= 12 ? 'PM' : 'AM';
+        var h12 = h % 12; if(h12 === 0) h12 = 12;
+        timeStr = h12 + ':' + m + ' ' + ampm;
+      }
+
+      var lines = [
+        "Hi! I'd like to request an appointment at Hair Creations.",
+        'Service: ' + service,
+        'Preferred date: ' + dateStr,
+        'Preferred time: ' + timeStr,
+        'Name: ' + name,
+        'Phone: ' + phone
+      ];
+      if(notes){ lines.push('Notes: ' + notes); }
+      var message = lines.join('\n');
+
+      var smsLink = 'sms:+18316372866?&body=' + encodeURIComponent(message);
+      var smsBtn = document.getElementById('book-sms-link');
+      if(smsBtn){ smsBtn.setAttribute('href', smsLink); }
+      var summary = document.getElementById('book-summary');
+      if(summary){ summary.textContent = message; }
+
+      var confirmBox = document.getElementById('book-confirm');
+      if(confirmBox){
+        confirmBox.hidden = false;
+        confirmBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
   /* ---------- Lightbox ---------- */
   var lightbox = document.querySelector('.lightbox');
   if(lightbox){
